@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<SplitPane xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.assignment.Controller"
+           prefHeight="720" prefWidth="1280" orientation="HORIZONTAL" dividerPositions="0.95" fx:id="mainPane">
+
+    <GridPane alignment="center"
+              prefHeight="720" prefWidth="1000">
+        <children>
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="3"
+                  GridPane.columnSpan="2" GridPane.rowSpan="1"
+                  alignment="CENTER">
+                <Label text="Cryptocurrency List: "/>
+                <ComboBox fx:id="cryptoList"/>
+            </HBox>
+
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="4"
+                  GridPane.columnSpan="2" GridPane.rowSpan="1"
+                  alignment="CENTER">
+                <Label text="ForEx Currency List: "/>
+                <ComboBox fx:id="currencyList">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="USD"/>
+                            <String fx:value="CAD"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="5"
+                  GridPane.columnSpan="2" GridPane.rowSpan="1"
+                  alignment="CENTER">
+                <Label text="Time Period List: "/>
+                <ComboBox fx:id="periodList">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Day"/>
+                            <String fx:value="Month"/>
+                            <String fx:value="Year"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+
+            <Button fx:id="clearButton"
+                    text="Clear"
+                    GridPane.columnIndex="0" GridPane.rowIndex="7"
+                    GridPane.columnSpan="2" GridPane.rowSpan="1"
+                    onAction="#handleEvent" GridPane.halignment="CENTER"/>
+
+            <Button fx:id="watchListButton"
+                    text="Add to Watchlist"
+                    GridPane.columnIndex="0" GridPane.rowIndex="8"
+                    GridPane.columnSpan="2" GridPane.rowSpan="1"
+                    onAction="#handleEvent" GridPane.halignment="CENTER"/>
+
+            <Button fx:id="backUpProfileButton"
+                    text="Save Profile"
+                    GridPane.columnIndex="0" GridPane.rowIndex="9"
+                    GridPane.columnSpan="2" GridPane.rowSpan="1"
+                    onAction="#handleEvent" GridPane.halignment="CENTER"/>
+
+            <Button fx:id="submitButton"
+                    text="Submit"
+                    defaultButton="true"
+                    GridPane.columnIndex="0" GridPane.rowIndex="11"
+                    GridPane.columnSpan="2" GridPane.rowSpan="1"
+                    GridPane.halignment="CENTER"
+                    onAction="#handleEvent"/>
+        </children>
+    </GridPane>
+    <SplitPane orientation="VERTICAL">
+        <Label text="Watchlist"/>
+        <ListView fx:id="watchListView" onMouseClicked="#handleMouseEvent"/>
+    </SplitPane>
+
+</SplitPane>

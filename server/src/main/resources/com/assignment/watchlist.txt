@@ -1,0 +1,5 @@
+BTC
+ATOM
+KNC
+ETH
+CGLD
